@@ -93,7 +93,8 @@ class Sitemap < ::Middleman::Extension
 
   # Returns a URL with proper HTML entities
   def encode(path)
-    str = path.split("/").map { |f| h(f) }.join('/')
+    str = path.split("/").map { |f| h(f) }.join("/")
+    str = str + "/" if path[-1] == "/"
     return str
   end
 
