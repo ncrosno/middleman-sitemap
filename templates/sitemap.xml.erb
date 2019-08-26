@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <% @pages.each do |p| %>
+    <% unless p.data.noindex %>
   <url>
     <loc><%= @hostname + encode(p.url) %></loc>
 <% if p.data.lastmod %>    <lastmod><%= p.data.lastmod %></lastmod>
@@ -10,5 +11,6 @@
 <% if p.data.priority %>    <priority><%= p.data.priority %></priority>
 <% end %>
   </url>
+<% end %>
 <% end %>
 </urlset>
