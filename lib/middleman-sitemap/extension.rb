@@ -16,7 +16,8 @@ class Sitemap < ::Middleman::Extension
     # puts options.my_option
   end
 
-  def after_build(builder)
+  #def after_build(builder)
+  def before_build(builder)
     @builder = builder
     generate_sitemap
   end
